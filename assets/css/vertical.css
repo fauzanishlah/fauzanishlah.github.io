@@ -1,0 +1,109 @@
+:root {
+  --tab-header-wide: 20%;
+}
+
+.tabs {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:80%;
+  height:80vh;
+  padding:30px 20px;
+  background:#f5f5f5;
+  box-shadow:2px 2px 4px 2px rgb(143, 143, 143);
+  overflow:hidden;
+  border-radius: 8px;
+}
+.tabs .tab-header {
+  float:left;
+  width:var(--tab-header-wide);
+  height:100%;
+  border-right:1px solid #ccc;
+  padding:50px 0px;
+}
+.tabs .tab-header > div {
+  height:50px;
+  line-height:50px;
+  font-size:16px;
+  font-weight:600;
+  color:#000;
+  cursor:pointer;
+  padding-left:10px;
+}
+.tabs .tab-header > div:hover,
+.tabs .tab-header > div.active {
+  color: var(--color-hover);
+}
+.tabs .tab-header div i {
+  display:inline-block;
+  margin-left:10px;
+  margin-right:5px;
+  width: 30px;
+}
+
+.tabs .tab-content {
+  position:relative;
+  height:100%;
+  overflow:hidden;
+}
+.tabs .tab-content > div > i {
+  display:inline-block;
+  width:50px;
+  height:50px;
+  background:#555;
+  color:#f5f5f5;
+  font-size:25px;
+  font-weight:600;
+  text-align:center;
+  line-height:50px;
+  border-radius:50%;
+}
+
+.tabs .tab-content > div > iframe{
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+
+.tabs .tab-content > div {
+  position:absolute;
+  text-align:center;
+  padding:40px 20px;
+  height: 100%;
+  width: 100%;
+  /* top:-200%; */
+  transform: scale(0);
+  transition:all 0.5s ease-in-out;
+  overflow-y: scroll;
+  right: -20px;
+}
+
+.tabs .tab-content > div.active {
+  /* top:0px; */
+  transform: scale(1);
+  transition-delay: 0.5s;
+}
+ 
+.tabs .tab-indicator {
+  position:absolute;
+  width:4px;
+  height:50px;
+  background: var(--color-hover);
+  left: 0;
+  top:80px;
+  transition:all 0.5s ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+  .tab .tab-header {
+    width: 5%;
+  }
+  .tabs .tab-header div span {
+    display: none;
+  }
+
+  .tabs .tab-header > div {
+    align-items: center;
+  }
+}
