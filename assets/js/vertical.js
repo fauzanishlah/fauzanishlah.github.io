@@ -1,18 +1,25 @@
-function _class(name){
-    return document.getElementsByClassName(name);
-  }
+const indicator = _selector(".tab-indicator")[0];
+const tabContent = _selector(".tab-content > div");
+const tabPanes = _selector(".tab-header > div");
    
-let tabPanes = _class("tab-header")[0].getElementsByTagName("div");
-   
-for(let i=0;i<tabPanes.length;i++){
-  tabPanes[i].addEventListener("click",function(){
-    _class("tab-header")[0].getElementsByClassName("active")[0].classList.remove("active");
-    tabPanes[i].classList.add("active");
+for(let i=0;i<tabPanes.length;i++) {
+  tabPanes[i].addEventListener("click", function() {
+    const activeHeader = _selector(".tab-header .active")[0];
+    const activeContent = _selector(".tab-content .active")[0];
+    
+    // Tab-header active class
+    activeHeader.classList.remove("active");
+    this.classList.add("active");
       
-    _class("tab-indicator")[0].style.top = `calc(80px + ${i*50}px)`;
+    // Tab-indicator active
+    indicator.style.top = `calc(80px + ${i*50}px)`;
       
-    _class("tab-content")[0].getElementsByClassName("active")[0].classList.remove("active");
-    _class("tab-content")[0].getElementsByTagName("div")[i].classList.add("active");
-      
+    // Tab-content active class
+    activeContent.classList.remove("active");
+    tabContent[i].classList.add("active");
     });
+  }
+
+  function _selector(query) {
+    return document.querySelectorAll(query)
   }
