@@ -161,3 +161,23 @@ header.header {
     opacity: 1;
     right: 0;
   }
+
+
+  .edu-container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 30%;
+      box-shadow: 2px 3px 5px  rgba(30, 30, 30, 0.5);
+      border-radius: 4px;
+  }
+
+  .edu-container div {
+      padding: 5px;
+  }
+
+  @media only screen and (max-width: 768px) {
+      .edu-container {
+          min-width: 80%;
+      }
+  }
+  
